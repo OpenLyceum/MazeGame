@@ -75,7 +75,7 @@ Same `fuzzFrame` path; requires `supportsInteractiveDescription` (on by default)
 
 ### Developer Helper (not a query param)
 
-**Ctrl+Shift+H** toggles the joist Helper (visual tree, PDOM tree, bounds, runtime **Fuzz** checkbox). Use it (or the browser accessibility tree in DevTools) to inspect names, help text, and Tab order — the same PDOM QA path as other OpenPhysics sims.
+**Ctrl+Shift+H** toggles the joist Helper (visual tree, PDOM tree, bounds, runtime **Fuzz** checkbox). Use it (or the browser accessibility tree in DevTools) to inspect names, help text, and Tab order — the same PDOM QA path as other OpenLyceum sims.
 
 ---
 

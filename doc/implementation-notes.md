@@ -87,7 +87,7 @@ Defensive disposal for CRC compliance despite single-screen lifetime:
 
 ## Accessibility
 
-Reference implementation for the [OpenPhysics accessibility convention](https://github.com/OpenPhysics/Baton/blob/main/ACCESSIBILITY.md):
+Reference implementation for the [OpenLyceum accessibility convention](https://github.com/OpenLyceum/Baton/blob/main/ACCESSIBILITY.md):
 
 - **Screen summary** — `MazeGameScreenSummaryContent` via `screenSummaryContent` super-option.
 - **PDOM order** — `pdomPlayAreaNode` (arena) → `pdomControlAreaNode` (panel, level, HUD, info, reset).
