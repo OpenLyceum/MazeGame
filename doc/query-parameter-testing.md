@@ -202,4 +202,4 @@ For continuous testing (PhET aqua / fuzz-lightyear): `postMessageOnLoad`, `postM
 ## Related docs
 
 - [implementation-notes.md](implementation-notes.md) — architecture, PDOM order, CRC parameter list
-- [CLAUDE.md](../CLAUDE.md) — project file map
+- [AGENTS.md](../AGENTS.md) — project file map
