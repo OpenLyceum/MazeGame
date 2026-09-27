@@ -3,6 +3,7 @@
  *
  * Physics and layout constants for the Maze Game model.
  */
+import MazeGameNamespace from "./MazeGameNamespace.js";
 
 const TILE_SIZE = 1;
 const LEVEL_WIDTH = 32;
@@ -111,6 +112,8 @@ const MazeGameConstants = {
   PANEL_Y_MARGIN: 10,
   HUD_PANEL_Y_MARGIN: 8,
 } as const;
+
+MazeGameNamespace.register("MazeGameConstants", MazeGameConstants);
 
 export default MazeGameConstants;
 
