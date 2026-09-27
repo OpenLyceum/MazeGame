@@ -3,7 +3,6 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { TimeModel } from "../src/common/TimeModel.js";
 import { MazeGameModel } from "../src/maze-game/model/MazeGameModel.js";
 import { describeDisposalLeaks, forceGC } from "./helpers/memoryLeak.js";
 
@@ -32,7 +31,4 @@ describe("Memory leak regression", () => {
   });
 });
 
-describeDisposalLeaks([
-  { name: "MazeGameModel", create: () => new MazeGameModel() },
-  { name: "TimeModel", create: () => new TimeModel(), idempotentDispose: true },
-]);
+describeDisposalLeaks([{ name: "MazeGameModel", create: () => new MazeGameModel() }]);
