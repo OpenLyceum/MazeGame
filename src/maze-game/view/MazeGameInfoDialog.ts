@@ -27,7 +27,7 @@ const TITLE_FONT = new PhetFont({
 const MAX_CONTENT_WIDTH =
   MazeGameLayoutConstants.INFO_DIALOG_MAX_CONTENT_WIDTH_FRACTION * ScreenView.DEFAULT_LAYOUT_BOUNDS.width;
 
-export default class MazeGameInfoDialog extends Dialog {
+export class MazeGameInfoDialog extends Dialog {
   private readonly disposeMazeGameInfoDialog: () => void;
 
   public constructor(providedOptions?: MazeGameInfoDialogOptions) {

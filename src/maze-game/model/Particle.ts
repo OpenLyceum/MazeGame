@@ -19,7 +19,7 @@ const assertFiniteXY = (x: number, y: number, label: string): void => {
   assert?.(Number.isFinite(x) && Number.isFinite(y), `${label} must be finite`);
 };
 
-export default class Particle {
+export class Particle {
   private readonly positionPropertyImpl = new Vector2Property(new Vector2(0, 0));
   private readonly velocityPropertyImpl = new Vector2Property(new Vector2(0, 0));
   private readonly accelerationPropertyImpl = new Vector2Property(new Vector2(0, 0));

@@ -24,7 +24,7 @@ type HudNodeSelfOptions = {
 
 type HudNodeOptions = HudNodeSelfOptions & PanelOptions;
 
-export default class HudNode extends Panel {
+export class HudNode extends Panel {
   private readonly elapsedTimeNodeRef: ElapsedTimeNode;
   private readonly collisionsDisplayRef: NumberDisplay;
   private readonly derivedProperties: Array<{ dispose(): void }> = [];

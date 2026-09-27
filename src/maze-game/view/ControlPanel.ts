@@ -44,7 +44,7 @@ type ControlPanelSelfOptions = {
 
 type ControlPanelOptions = ControlPanelSelfOptions & PanelOptions;
 
-export default class ControlPanel extends Panel {
+export class ControlPanel extends Panel {
   private readonly padRef: VoicingNode;
   private readonly padLayerRef: Node;
   private readonly padDragListener: DragListener;

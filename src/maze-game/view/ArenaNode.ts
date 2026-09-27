@@ -36,7 +36,7 @@ import { particleTraceEnabledProperty } from "../../preferences/MazeGamePreferen
 import { createModeDependentHelpTextProperty } from "../a11y/createA11yDerivedProperties.js";
 import MazeGameLayoutConstants from "../MazeGameLayoutConstants.js";
 import { ControlMode } from "../model/ControlMode.js";
-import type Level from "../model/Level.js";
+import type { Level } from "../model/Level.js";
 import type { MazeGameModel } from "../model/MazeGameModel.js";
 import { TileType } from "../model/TileType.js";
 import {
@@ -48,7 +48,7 @@ import {
   type ParticleVisualNodes,
 } from "./ArenaPaints.js";
 
-export default class ArenaNode extends Node {
+export class ArenaNode extends Node {
   private readonly floorRect: Rectangle;
   private readonly winRing: Circle;
   private readonly goalText: Text;

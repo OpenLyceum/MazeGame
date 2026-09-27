@@ -14,7 +14,7 @@ import {
 } from "../a11y/createA11yDerivedProperties.js";
 import type { MazeGameModel } from "../model/MazeGameModel.js";
 
-export default class MazeGameScreenSummaryContent extends ScreenSummaryContent {
+export class MazeGameScreenSummaryContent extends ScreenSummaryContent {
   private readonly derivedProperties: Array<{ dispose(): void }> = [];
 
   public constructor(model: MazeGameModel) {

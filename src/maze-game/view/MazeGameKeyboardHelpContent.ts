@@ -6,9 +6,9 @@
 
 import { BasicActionsKeyboardHelpSection, TwoColumnKeyboardHelpContent } from "scenerystack/scenery-phet";
 import { StringManager } from "../../i18n/StringManager.js";
-import MazeGameKeyboardHelpSection from "./MazeGameKeyboardHelpSection.js";
+import { MazeGameKeyboardHelpSection } from "./MazeGameKeyboardHelpSection.js";
 
-export default class MazeGameKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
+export class MazeGameKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
   public constructor() {
     const strings = StringManager.getInstance().getKeyboardHelpStrings();
 

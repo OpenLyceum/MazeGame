@@ -8,7 +8,7 @@
  */
 
 import { assertSlow } from "scenerystack/assert";
-import Level from "./Level.js";
+import { Level } from "./Level.js";
 import { TileType } from "./TileType.js";
 
 type LevelChar = " " | "W" | "S" | "F";

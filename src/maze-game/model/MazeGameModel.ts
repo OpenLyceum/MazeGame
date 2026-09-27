@@ -11,9 +11,9 @@ import { BooleanProperty, DerivedProperty, NumberProperty, Property, type ReadOn
 import type { TModel } from "scenerystack/joist";
 import MazeGameConstants from "../../MazeGameConstants.js";
 import { ControlMode } from "./ControlMode.js";
-import type Level from "./Level.js";
+import type { Level } from "./Level.js";
 import { LEVEL_KEYS, LEVELS, LevelKey } from "./Levels.js";
-import Particle from "./Particle.js";
+import { Particle } from "./Particle.js";
 import { TileType } from "./TileType.js";
 
 export class MazeGameModel implements TModel {

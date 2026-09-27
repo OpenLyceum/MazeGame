@@ -26,7 +26,7 @@ const announceToVoicing = (alert: TReadOnlyProperty<string> | Utterance): void =
   voicingUtteranceQueue.addToBack(alert instanceof Utterance ? alert : new Utterance({ alert }));
 };
 
-export default class MazeGameDescriber extends Disposable {
+export class MazeGameDescriber extends Disposable {
   private readonly derivedProperties: Array<{ dispose(): void }> = [];
   private readonly levelChangedUtterance: Utterance;
   private readonly controlModeChangedUtterance: Utterance;

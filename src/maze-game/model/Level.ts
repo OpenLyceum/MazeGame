@@ -21,7 +21,7 @@ export interface GridPosition {
   readonly row: number;
 }
 
-export default class Level {
+export class Level {
   public static readonly WIDTH = LEVEL_WIDTH;
   public static readonly HEIGHT = LEVEL_HEIGHT;
 

@@ -30,7 +30,7 @@ type LevelSelectorSelfOptions = {
 
 type LevelSelectorOptions = LevelSelectorSelfOptions & PanelOptions;
 
-export default class LevelSelector extends Panel {
+export class LevelSelector extends Panel {
   private readonly levelNameBridgeProperty: Property<LevelKey>;
 
   public constructor(model: MazeGameModel, providedOptions?: LevelSelectorOptions) {

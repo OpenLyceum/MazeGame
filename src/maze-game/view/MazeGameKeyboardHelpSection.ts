@@ -9,7 +9,7 @@ import { KeyboardHelpSection, KeyboardHelpSectionRow } from "scenerystack/scener
 import type { KeyboardHelpStrings } from "../../i18n/StringManager.js";
 import MazeGameHotkeyData from "../keyboard/MazeGameHotkeyData.js";
 
-export default class MazeGameKeyboardHelpSection extends KeyboardHelpSection {
+export class MazeGameKeyboardHelpSection extends KeyboardHelpSection {
   public constructor(strings: KeyboardHelpStrings) {
     const controlParticleRow = KeyboardHelpSectionRow.fromHotkeyData(MazeGameHotkeyData.MOVE_PARTICLE, {
       labelStringProperty: strings.controlParticleStringProperty,
