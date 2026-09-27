@@ -10,10 +10,6 @@ import MazeGameNamespace from "./MazeGameNamespace.js";
 
 const { BLACK, WHITE } = Color;
 
-function profileColor(name: string, def: Color | string, projector: Color | string): ProfileColorProperty {
-  return new ProfileColorProperty(MazeGameNamespace, name, { default: def, projector });
-}
-
 const PANEL_FILL_DARK = new Color(40, 40, 40);
 const PANEL_FILL_LIGHT = new Color(240, 240, 240);
 const PANEL_STROKE_DARK = "rgba(255, 255, 255, 0.4)";
@@ -24,99 +20,218 @@ export const TRANSPARENT_COLOR = "rgba(0,0,0,0)";
 
 const MazeGameColors = {
   // Screen background.
-  backgroundColorProperty: profileColor("background", "#1a1a2e", WHITE),
+  backgroundColorProperty: new ProfileColorProperty(MazeGameNamespace, "background", {
+    default: "#1a1a2e",
+    projector: WHITE,
+  }),
 
   // Default text / labels.
-  foregroundColorProperty: profileColor("foreground", WHITE, BLACK),
+  foregroundColorProperty: new ProfileColorProperty(MazeGameNamespace, "foreground", {
+    default: WHITE,
+    projector: BLACK,
+  }),
 
   // Maze tiles.
-  floorColorProperty: profileColor("floor", "#2a2a44", "#eeeeee"),
-  wallColorProperty: profileColor("wall", "#bdbdbd", "#424242"),
-  wallShadowColorProperty: profileColor("wallShadow", "rgba(0,0,0,0.5)", "rgba(0,0,0,0.18)"),
+  floorColorProperty: new ProfileColorProperty(MazeGameNamespace, "floor", {
+    default: "#2a2a44",
+    projector: "#eeeeee",
+  }),
+  wallColorProperty: new ProfileColorProperty(MazeGameNamespace, "wall", { default: "#bdbdbd", projector: "#424242" }),
+  wallShadowColorProperty: new ProfileColorProperty(MazeGameNamespace, "wallShadow", {
+    default: "rgba(0,0,0,0.5)",
+    projector: "rgba(0,0,0,0.18)",
+  }),
 
   // Finish tile colors (cycle by game state).
-  finishColorProperty: profileColor("finish", "#4caf50", "#2e7d32"),
-  finishClosedColorProperty: profileColor("finishClosed", "#e64a19", "#bf360c"),
-  finishWonColorProperty: profileColor("finishWon", "#ffeb3b", "#fbc02d"),
+  finishColorProperty: new ProfileColorProperty(MazeGameNamespace, "finish", {
+    default: "#4caf50",
+    projector: "#2e7d32",
+  }),
+  finishClosedColorProperty: new ProfileColorProperty(MazeGameNamespace, "finishClosed", {
+    default: "#e64a19",
+    projector: "#bf360c",
+  }),
+  finishWonColorProperty: new ProfileColorProperty(MazeGameNamespace, "finishWon", {
+    default: "#ffeb3b",
+    projector: "#fbc02d",
+  }),
 
   // The player particle.
-  particleColorProperty: profileColor("particle", "#e53935", "#b71c1c"),
-  particleHighlightColorProperty: profileColor("particleHighlight", "#ff8a80", "#ef5350"),
-  particleShadeColorProperty: profileColor("particleShade", "#c62828", "#7f0000"),
-  particleStrokeColorProperty: profileColor("particleStroke", "#5d1010", "#4a0000"),
-  particleSpecularColorProperty: profileColor("particleSpecular", "rgba(255,255,255,0.75)", "rgba(255,255,255,0.85)"),
-  particleGlowColorProperty: profileColor("particleGlow", "rgba(229,57,53,0.35)", "rgba(183,28,28,0.3)"),
-  particleTraceColorProperty: profileColor("particleTrace", "rgba(229,57,53,0.55)", "rgba(183,28,28,0.5)"),
+  particleColorProperty: new ProfileColorProperty(MazeGameNamespace, "particle", {
+    default: "#e53935",
+    projector: "#b71c1c",
+  }),
+  particleHighlightColorProperty: new ProfileColorProperty(MazeGameNamespace, "particleHighlight", {
+    default: "#ff8a80",
+    projector: "#ef5350",
+  }),
+  particleShadeColorProperty: new ProfileColorProperty(MazeGameNamespace, "particleShade", {
+    default: "#c62828",
+    projector: "#7f0000",
+  }),
+  particleStrokeColorProperty: new ProfileColorProperty(MazeGameNamespace, "particleStroke", {
+    default: "#5d1010",
+    projector: "#4a0000",
+  }),
+  particleSpecularColorProperty: new ProfileColorProperty(MazeGameNamespace, "particleSpecular", {
+    default: "rgba(255,255,255,0.75)",
+    projector: "rgba(255,255,255,0.85)",
+  }),
+  particleGlowColorProperty: new ProfileColorProperty(MazeGameNamespace, "particleGlow", {
+    default: "rgba(229,57,53,0.35)",
+    projector: "rgba(183,28,28,0.3)",
+  }),
+  particleTraceColorProperty: new ProfileColorProperty(MazeGameNamespace, "particleTrace", {
+    default: "rgba(229,57,53,0.55)",
+    projector: "rgba(183,28,28,0.5)",
+  }),
 
   // Goal tile overlay (rings, star, stripes).
-  goalMarkerColorProperty: profileColor("goalMarker", "rgba(255,255,255,0.85)", "rgba(255,255,255,0.9)"),
-  goalStarFillColorProperty: profileColor("goalStarFill", "rgba(255,235,120,0.9)", "rgba(255,248,180,0.95)"),
-  goalTileSheenColorProperty: profileColor("goalTileSheen", "rgba(255,255,255,0.28)", "rgba(255,255,255,0.4)"),
-  goalTileShadowColorProperty: profileColor("goalTileShadow", "rgba(0,0,0,0.28)", "rgba(0,0,0,0.18)"),
-  goalBackdropGlowColorProperty: profileColor("goalBackdropGlow", "rgba(255,255,255,0.35)", "rgba(255,255,255,0.45)"),
-  goalBackdropGlowMidColorProperty: profileColor(
-    "goalBackdropGlowMid",
-    "rgba(255,255,255,0.1)",
-    "rgba(255,255,255,0.15)",
-  ),
+  goalMarkerColorProperty: new ProfileColorProperty(MazeGameNamespace, "goalMarker", {
+    default: "rgba(255,255,255,0.85)",
+    projector: "rgba(255,255,255,0.9)",
+  }),
+  goalStarFillColorProperty: new ProfileColorProperty(MazeGameNamespace, "goalStarFill", {
+    default: "rgba(255,235,120,0.9)",
+    projector: "rgba(255,248,180,0.95)",
+  }),
+  goalTileSheenColorProperty: new ProfileColorProperty(MazeGameNamespace, "goalTileSheen", {
+    default: "rgba(255,255,255,0.28)",
+    projector: "rgba(255,255,255,0.4)",
+  }),
+  goalTileShadowColorProperty: new ProfileColorProperty(MazeGameNamespace, "goalTileShadow", {
+    default: "rgba(0,0,0,0.28)",
+    projector: "rgba(0,0,0,0.18)",
+  }),
+  goalBackdropGlowColorProperty: new ProfileColorProperty(MazeGameNamespace, "goalBackdropGlow", {
+    default: "rgba(255,255,255,0.35)",
+    projector: "rgba(255,255,255,0.45)",
+  }),
+  goalBackdropGlowMidColorProperty: new ProfileColorProperty(MazeGameNamespace, "goalBackdropGlowMid", {
+    default: "rgba(255,255,255,0.1)",
+    projector: "rgba(255,255,255,0.15)",
+  }),
 
   // Control-pad colors. Dark mode uses lighter/brighter variants for contrast against dark buttons.
-  positionVectorProperty: profileColor("positionVector", "#6EB5FF", "#1A5B9E"),
-  velocityVectorProperty: profileColor("velocityVector", "#FF7572", "#A51A16"),
-  accelerationVectorProperty: profileColor("accelerationVector", "#5CD65C", "#1B6B1B"),
+  positionVectorProperty: new ProfileColorProperty(MazeGameNamespace, "positionVector", {
+    default: "#6EB5FF",
+    projector: "#1A5B9E",
+  }),
+  velocityVectorProperty: new ProfileColorProperty(MazeGameNamespace, "velocityVector", {
+    default: "#FF7572",
+    projector: "#A51A16",
+  }),
+  accelerationVectorProperty: new ProfileColorProperty(MazeGameNamespace, "accelerationVector", {
+    default: "#5CD65C",
+    projector: "#1B6B1B",
+  }),
 
   // Radio button fill for the mode tabs.
-  tabButtonFillProperty: profileColor("tabButtonFill", new Color(58, 58, 58), new Color(245, 245, 245)),
+  tabButtonFillProperty: new ProfileColorProperty(MazeGameNamespace, "tabButtonFill", {
+    default: new Color(58, 58, 58),
+    projector: new Color(245, 245, 245),
+  }),
 
   // Drag-pad surface inside the control panel.
-  padFillProperty: profileColor("padFill", "rgba(255,255,255,0.5)", "rgba(255,255,255,0.85)"),
+  padFillProperty: new ProfileColorProperty(MazeGameNamespace, "padFill", {
+    default: "rgba(255,255,255,0.5)",
+    projector: "rgba(255,255,255,0.85)",
+  }),
 
   // Control-pad knob outline.
-  knobStrokeProperty: profileColor("knobStroke", "rgba(0,0,0,0.4)", "rgba(0,0,0,0.35)"),
+  knobStrokeProperty: new ProfileColorProperty(MazeGameNamespace, "knobStroke", {
+    default: "rgba(0,0,0,0.4)",
+    projector: "rgba(0,0,0,0.35)",
+  }),
 
   // Panels.
-  panelFillProperty: profileColor("panelFill", PANEL_FILL_DARK, PANEL_FILL_LIGHT),
-  panelStrokeProperty: profileColor("panelStroke", PANEL_STROKE_DARK, PANEL_STROKE_LIGHT),
+  panelFillProperty: new ProfileColorProperty(MazeGameNamespace, "panelFill", {
+    default: PANEL_FILL_DARK,
+    projector: PANEL_FILL_LIGHT,
+  }),
+  panelStrokeProperty: new ProfileColorProperty(MazeGameNamespace, "panelStroke", {
+    default: PANEL_STROKE_DARK,
+    projector: PANEL_STROKE_LIGHT,
+  }),
 
   // Start tile marker (semi-transparent blue).
-  startTileColorProperty: profileColor("startTile", "rgba(100,160,255,0.5)", "rgba(50,100,200,0.35)"),
+  startTileColorProperty: new ProfileColorProperty(MazeGameNamespace, "startTile", {
+    default: "rgba(100,160,255,0.5)",
+    projector: "rgba(50,100,200,0.35)",
+  }),
 
   // Warning text when a collision locks the player out of winning.
-  collisionWarningColorProperty: profileColor("collisionWarning", "#ff7043", "#b71c1c"),
+  collisionWarningColorProperty: new ProfileColorProperty(MazeGameNamespace, "collisionWarning", {
+    default: "#ff7043",
+    projector: "#b71c1c",
+  }),
 
   // Reset Level button — slightly darker in projector for contrast on white chrome.
-  resetLevelButtonColorProperty: profileColor("resetLevelButton", "#f6e652", "#d4c020"),
+  resetLevelButtonColorProperty: new ProfileColorProperty(MazeGameNamespace, "resetLevelButton", {
+    default: "#f6e652",
+    projector: "#d4c020",
+  }),
 
   // Next Level button.
-  nextLevelButtonColorProperty: profileColor("nextLevelButton", "#66bb6a", "#388e3c"),
+  nextLevelButtonColorProperty: new ProfileColorProperty(MazeGameNamespace, "nextLevelButton", {
+    default: "#66bb6a",
+    projector: "#388e3c",
+  }),
 
   // Level selector radio button highlight states.
-  levelButtonSelectedColorProperty: profileColor("levelButtonSelected", "#66bb6a", "#388e3c"),
-  levelButtonUnselectedColorProperty: profileColor("levelButtonUnselected", "#f2ffcc", "#e8f5e9"),
+  levelButtonSelectedColorProperty: new ProfileColorProperty(MazeGameNamespace, "levelButtonSelected", {
+    default: "#66bb6a",
+    projector: "#388e3c",
+  }),
+  levelButtonUnselectedColorProperty: new ProfileColorProperty(MazeGameNamespace, "levelButtonUnselected", {
+    default: "#f2ffcc",
+    projector: "#e8f5e9",
+  }),
 
   // Reset All button (bottom-right).
-  resetAllButtonColorProperty: profileColor("resetAllButton", "#ff9800", "#ef6c00"),
+  resetAllButtonColorProperty: new ProfileColorProperty(MazeGameNamespace, "resetAllButton", {
+    default: "#ff9800",
+    projector: "#ef6c00",
+  }),
 
   // Preferences toggle switch (on state) — darker green in projector for white backgrounds.
-  toggleSwitchTrackFillRightProperty: profileColor("toggleSwitchTrackFillRight", "#64bd5a", "#3d9b45"),
+  toggleSwitchTrackFillRightProperty: new ProfileColorProperty(MazeGameNamespace, "toggleSwitchTrackFillRight", {
+    default: "#64bd5a",
+    projector: "#3d9b45",
+  }),
 
   // Fleet-standard aliases for shared Panel + ButtonOptions modules.
-  panelBackgroundColorProperty: profileColor("panelBackground", PANEL_FILL_DARK, PANEL_FILL_LIGHT),
-  panelBorderColorProperty: profileColor("panelBorder", PANEL_STROKE_DARK, PANEL_STROKE_LIGHT),
-  textColorProperty: profileColor("text", WHITE, BLACK),
+  panelBackgroundColorProperty: new ProfileColorProperty(MazeGameNamespace, "panelBackground", {
+    default: PANEL_FILL_DARK,
+    projector: PANEL_FILL_LIGHT,
+  }),
+  panelBorderColorProperty: new ProfileColorProperty(MazeGameNamespace, "panelBorder", {
+    default: PANEL_STROKE_DARK,
+    projector: PANEL_STROKE_LIGHT,
+  }),
+  textColorProperty: new ProfileColorProperty(MazeGameNamespace, "text", { default: WHITE, projector: BLACK }),
 
   // ── Light control surfaces ───────────────────────────────────────────────────
   // White chrome (combo boxes, flat push buttons, editable input fields) stays light
   // in both profiles; its text stays dark.
 
   /** Fill of light control surfaces: combo-box button/list, editable input fields. */
-  controlSurfaceColorProperty: profileColor("controlSurface", "#ffffff", "#ffffff"),
+  controlSurfaceColorProperty: new ProfileColorProperty(MazeGameNamespace, "controlSurface", {
+    default: "#ffffff",
+    projector: "#ffffff",
+  }),
 
   /** Fill of a disabled control surface (grayed-out editable input field). */
-  controlSurfaceDisabledColorProperty: profileColor("controlSurfaceDisabled", "#cccccc", "#cccccc"),
+  controlSurfaceDisabledColorProperty: new ProfileColorProperty(MazeGameNamespace, "controlSurfaceDisabled", {
+    default: "#cccccc",
+    projector: "#cccccc",
+  }),
 
   /** Text on light control surfaces: combo items, flat-button labels, field values, preferences. */
-  controlSurfaceTextColorProperty: profileColor("controlSurfaceText", "#1a1a1a", "#1a1a1a"),
+  controlSurfaceTextColorProperty: new ProfileColorProperty(MazeGameNamespace, "controlSurfaceText", {
+    default: "#1a1a1a",
+    projector: "#1a1a1a",
+  }),
 };
 
 export default MazeGameColors;
