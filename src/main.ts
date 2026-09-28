@@ -45,6 +45,7 @@ onReadyToLaunch(() => {
         customPreferences: [{ createContent: (tandem) => new MazeGamePreferencesNode(tandem) }],
       },
       audioOptions: {
+        // Initializes tambo and the Audio preferences. Pair with supportsSound in src/init.ts.
         supportsSound: true,
         supportsVoicing: true,
       },
