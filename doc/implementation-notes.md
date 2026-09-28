@@ -93,8 +93,7 @@ Reference implementation for the [OpenLyceum accessibility convention](https://g
 - **PDOM order** — `pdomPlayAreaNode` (arena) → `pdomControlAreaNode` (panel, level, HUD, info, reset).
 - **Dynamic alerts** — `MazeGameDescriber` (collisions, wins, level/mode changes); collision
   haptics via Web Vibration API when available.
-- Manual CRC recipes: `doc/query-parameter-testing.md` (`?ea`, `?fuzz&ea`, `?stringTest=`, etc.).
-  Inspect the PDOM in DevTools or via the joist Helper (**Ctrl+Shift+H**); log alerts with
+- Inspect the PDOM in DevTools or via the joist Helper (**Ctrl+Shift+H**); log alerts with
   `?logInteractiveDescriptionResponses`.
 
 ## Testing

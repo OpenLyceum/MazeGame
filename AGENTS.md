@@ -85,7 +85,7 @@ Actual specs:
 - `tests/maze-game/model/MazeGameModel.test.ts`
 - `tests/memory-leak.test.ts`
 
-Vitest environment: `happy-dom`. See also `doc/query-parameter-testing.md` for CRC query-param recipes.
+Vitest environment: `happy-dom`.
 
 Run `npm test`. CI runs the suite when a `test` script is present.
 
@@ -98,3 +98,7 @@ npm run test:query-params   # headless Playwright query-param smoke tests
 ```
 
 `npm run release` runs `npm test` before the version bump, and `src/init.ts` reads `version` from `package.json`, so the About dialog always matches the release.
+
+## Development notes
+
+Architecture and design decisions: `doc/implementation-notes.md`.
