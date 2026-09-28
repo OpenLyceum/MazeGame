@@ -31,6 +31,7 @@ onReadyToLaunch(() => {
 
   const screens = [
     new MazeGameScreen({
+      // The screen name Property updates automatically when the locale changes
       name: stringManager.getScreenNames().mazeGameStringProperty,
       tandem: Tandem.ROOT.createTandem("mazeGameScreen"),
       backgroundColorProperty: MazeGameColors.backgroundColorProperty,
@@ -40,19 +41,24 @@ onReadyToLaunch(() => {
   const sim = new Sim(stringManager.getTitleStringProperty(), screens, {
     preferencesModel: new PreferencesModel({
       visualOptions: {
+        // Adds a "Projector Mode" toggle in Preferences → Visual
         supportsProjectorMode: true,
+        // Enables keyboard-navigation highlight outlines
         supportsInteractiveHighlights: true,
         customPreferences: [{ createContent: (tandem) => new MazeGamePreferencesNode(tandem) }],
+      },
+      localizationOptions: {
+        // Adds a language picker in Preferences → Language
+        supportsDynamicLocale: true,
       },
       audioOptions: {
         // Initializes tambo and the Audio preferences. Pair with supportsSound in src/init.ts.
         supportsSound: true,
         supportsVoicing: true,
       },
-      localizationOptions: {
-        supportsDynamicLocale: true,
-      },
     }),
+
+    // Optional: fill in credits shown in Help → About
     credits: {
       leadDesign: "PhET Interactive Simulations (original)",
       softwareDevelopment: "SceneryStack port",
