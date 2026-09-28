@@ -13,10 +13,10 @@ import type { Tandem } from "scenerystack/tandem";
 import { StringManager } from "../i18n/StringManager.js";
 import MazeGameColors from "../MazeGameColors.js";
 import MazeGameLayoutConstants from "../maze-game/MazeGameLayoutConstants.js";
-import { particleTraceEnabledProperty } from "./MazeGamePreferencesModel.js";
+import type { MazeGamePreferencesModel } from "./MazeGamePreferencesModel.js";
 
 export class MazeGamePreferencesNode extends HBox {
-  public constructor(parentTandem: Tandem) {
+  public constructor(preferencesModel: MazeGamePreferencesModel, parentTandem: Tandem) {
     const strings = StringManager.getInstance().getPreferencesStrings();
 
     const label = new Text(strings.particleTraceStringProperty, {
@@ -28,7 +28,7 @@ export class MazeGamePreferencesNode extends HBox {
     });
 
     const toggleSwitch = new ToggleSwitch(
-      particleTraceEnabledProperty,
+      preferencesModel.particleTraceEnabledProperty,
       false,
       true,
       combineOptions<ToggleSwitchOptions>({

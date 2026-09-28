@@ -24,10 +24,12 @@ import { Tandem } from "scenerystack/tandem";
 import { StringManager } from "./i18n/StringManager.js";
 import MazeGameColors from "./MazeGameColors.js";
 import { MazeGameScreen } from "./maze-game/MazeGameScreen.js";
+import { MazeGamePreferencesModel } from "./preferences/MazeGamePreferencesModel.js";
 import { MazeGamePreferencesNode } from "./preferences/MazeGamePreferencesNode.js";
 
 onReadyToLaunch(() => {
   const stringManager = StringManager.getInstance();
+  const mazeGamePreferences = new MazeGamePreferencesModel(Tandem.ROOT.createTandem("preferences"));
 
   const screens = [
     new MazeGameScreen({
@@ -35,6 +37,7 @@ onReadyToLaunch(() => {
       name: stringManager.getScreenNames().mazeGameStringProperty,
       tandem: Tandem.ROOT.createTandem("mazeGameScreen"),
       backgroundColorProperty: MazeGameColors.backgroundColorProperty,
+      preferences: mazeGamePreferences,
     }),
   ];
 
@@ -45,7 +48,7 @@ onReadyToLaunch(() => {
         supportsProjectorMode: true,
         // Enables keyboard-navigation highlight outlines
         supportsInteractiveHighlights: true,
-        customPreferences: [{ createContent: (tandem) => new MazeGamePreferencesNode(tandem) }],
+        customPreferences: [{ createContent: (tandem) => new MazeGamePreferencesNode(mazeGamePreferences, tandem) }],
       },
       localizationOptions: {
         // Adds a language picker in Preferences → Language

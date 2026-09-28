@@ -8,7 +8,7 @@
  * step(dt) advances the collision-flicker animation and the win-pulse ring.
  */
 
-import { DerivedProperty, Multilink, stepTimer, type TimerListener } from "scenerystack/axon";
+import { type BooleanProperty, DerivedProperty, Multilink, stepTimer, type TimerListener } from "scenerystack/axon";
 import { type Bounds2, Vector2 } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
 import type { ModelViewTransform2 } from "scenerystack/phetcommon";
@@ -32,7 +32,6 @@ import { Utterance } from "scenerystack/utterance-queue";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors, { TRANSPARENT_COLOR } from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";
-import { particleTraceEnabledProperty } from "../../preferences/MazeGamePreferencesModel.js";
 import { createModeDependentHelpTextProperty } from "../a11y/createA11yDerivedProperties.js";
 import MazeGameLayoutConstants from "../MazeGameLayoutConstants.js";
 import { ControlMode } from "../model/ControlMode.js";
@@ -49,6 +48,7 @@ import {
 } from "./ArenaPaints.js";
 
 export class ArenaNode extends Node {
+  private readonly particleTraceEnabledProperty: BooleanProperty;
   private readonly floorRect: Rectangle;
   private readonly winRing: Circle;
   private readonly goalText: Text;
@@ -281,7 +281,7 @@ export class ArenaNode extends Node {
   };
 
   private readonly recordTracePosition = (position: Vector2): void => {
-    if (particleTraceEnabledProperty.value && !this.modelRef.wonProperty.value) {
+    if (this.particleTraceEnabledProperty.value && !this.modelRef.wonProperty.value) {
       this.appendTracePoint(position);
     }
   };
@@ -301,8 +301,14 @@ export class ArenaNode extends Node {
     modelViewTransform: ModelViewTransform2;
   };
 
-  public constructor(model: MazeGameModel, modelViewTransform: ModelViewTransform2, viewBounds: Bounds2) {
+  public constructor(
+    model: MazeGameModel,
+    modelViewTransform: ModelViewTransform2,
+    viewBounds: Bounds2,
+    particleTraceEnabledProperty: BooleanProperty,
+  ) {
     super();
+    this.particleTraceEnabledProperty = particleTraceEnabledProperty;
     this.modelRef = model;
 
     const stringManager = StringManager.getInstance();
@@ -458,7 +464,7 @@ export class ArenaNode extends Node {
 
     this.addChild(this.particleVisual.root);
 
-    particleTraceEnabledProperty.link(this.syncTracePreference, { disposer: this });
+    this.particleTraceEnabledProperty.link(this.syncTracePreference, { disposer: this });
     model.particle.positionProperty.link(this.syncParticlePosition, { disposer: this });
     model.particle.positionProperty.link(this.recordTracePosition, { disposer: this });
     model.gameGenerationProperty.lazyLink(this.resetTraceAfterGame, { disposer: this });

@@ -9,18 +9,22 @@ import { type EmptySelfOptions, optionize } from "scenerystack/phet-core";
 import { Screen, type ScreenOptions } from "scenerystack/sim";
 import type { Tandem } from "scenerystack/tandem";
 import MazeGameColors from "../MazeGameColors.js";
+import type { MazeGamePreferencesModel } from "../preferences/MazeGamePreferencesModel.js";
 import { MazeGameModel } from "./model/MazeGameModel.js";
 import { MazeGameKeyboardHelpContent } from "./view/MazeGameKeyboardHelpContent.js";
 import { MazeGameScreenView } from "./view/MazeGameScreenView.js";
 
-type MazeGameScreenOptions = ScreenOptions & { tandem: Tandem };
+type MazeGameScreenOptions = ScreenOptions & { tandem: Tandem; preferences: MazeGamePreferencesModel };
 
 export class MazeGameScreen extends Screen<MazeGameModel, MazeGameScreenView> {
   public constructor(options: MazeGameScreenOptions) {
     super(
       () => new MazeGameModel(),
       (model: MazeGameModel): MazeGameScreenView =>
-        new MazeGameScreenView(model, { tandem: options.tandem.createTandem("view") }),
+        new MazeGameScreenView(model, {
+          tandem: options.tandem.createTandem("view"),
+          preferences: options.preferences,
+        }),
       optionize<MazeGameScreenOptions, EmptySelfOptions, ScreenOptions>()(
         {
           backgroundColorProperty: MazeGameColors.backgroundColorProperty,

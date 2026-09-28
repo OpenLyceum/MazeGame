@@ -41,6 +41,7 @@ import { FLAT_RESET_ALL_BUTTON_OPTIONS } from "../../common/MazeGameButtonOption
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";
+import type { MazeGamePreferencesModel } from "../../preferences/MazeGamePreferencesModel.js";
 import { MazeGameDescriber } from "../a11y/MazeGameDescriber.js";
 import { applyMazeGameKeyboardInput } from "../keyboard/applyMazeGameKeyboardInput.js";
 import MazeGameHotkeyData from "../keyboard/MazeGameHotkeyData.js";
@@ -57,7 +58,10 @@ import { LevelSelector } from "./LevelSelector.js";
 import { MazeGameInfoDialog } from "./MazeGameInfoDialog.js";
 import { MazeGameScreenSummaryContent } from "./MazeGameScreenSummaryContent.js";
 
-type MazeGameScreenViewOptions = ScreenViewOptions & { tandem: Tandem };
+type MazeGameScreenViewOptions = ScreenViewOptions & {
+  tandem: Tandem;
+  preferences: MazeGamePreferencesModel;
+};
 
 type ArenaLayout = {
   modelViewTransform: ModelViewTransform2;
@@ -163,7 +167,12 @@ export class MazeGameScreenView extends ScreenView {
     super(options);
 
     const { modelViewTransform, arenaBounds } = computeArenaLayout(this.visibleBoundsProperty.value);
-    this.arenaNode = new ArenaNode(model, modelViewTransform, arenaBounds);
+    this.arenaNode = new ArenaNode(
+      model,
+      modelViewTransform,
+      arenaBounds,
+      options.preferences.particleTraceEnabledProperty,
+    );
 
     this.controlPanel = new ControlPanel(model, {
       tandem: options.tandem.createTandem("controlPanel"),
