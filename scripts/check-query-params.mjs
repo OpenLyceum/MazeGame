@@ -2,7 +2,7 @@
  * Headless checks for Maze Game query-parameter URLs.
  * Run: node scripts/check-query-params.mjs (preview on http://127.0.0.1:4173)
  */
-import { chromium } from "playwright";
+import { chromium } from "@playwright/test";
 
 const BASE = process.env.MAZE_GAME_URL ?? "http://127.0.0.1:4173/";
 
@@ -23,7 +23,7 @@ const FUZZ_RUN_MS = 8000;
 const LOAD_TIMEOUT_MS = 60000;
 
 /**
- * @param {import('playwright').Page} page
+ * @param {import('@playwright/test').Page} page
  * @returns {Promise<Record<string, unknown>>}
  */
 async function readQueryState(page) {
@@ -51,7 +51,7 @@ async function readQueryState(page) {
 }
 
 /**
- * @param {import('playwright').Page} page
+ * @param {import('@playwright/test').Page} page
  * @returns {Promise<{ errors: string[]; assertionFailures: string[] }>}
  */
 function attachConsole(page) {
