@@ -58,6 +58,9 @@ export class MazeGameModel implements TModel {
   // false → true transitions (i.e. each fresh contact counts as one collision).
   private previousColliding = false;
 
+  // Once an attempt starts, returning to the start tile must not stop its clock.
+  private hasStarted = false;
+
   // Start-tile center cached at level load so hasStartedMoving() avoids a
   // full grid scan on every physics substep.
   private cachedStartCenter: { x: number; y: number } = { x: 0, y: 0 };
@@ -209,8 +212,9 @@ export class MazeGameModel implements TModel {
       this.wonPropertyImpl.value = true;
     }
 
-    // Advance the timer if the particle has moved off the start tile.
-    if (this.hasStartedMoving()) {
+    // Exclude setup time, then time the entire attempt until the finish.
+    this.hasStarted ||= this.hasStartedMoving();
+    if (this.hasStarted) {
       this.timePropertyImpl.value += dt;
     }
 
@@ -278,6 +282,7 @@ export class MazeGameModel implements TModel {
     this.collisionsPropertyImpl.reset();
     this.wonPropertyImpl.reset();
     this.previousColliding = false;
+    this.hasStarted = false;
     this.timeAccumulator = 0;
     this.particle.reset();
     this.placeParticleAtStart();

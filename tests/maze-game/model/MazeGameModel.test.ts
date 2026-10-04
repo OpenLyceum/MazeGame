@@ -96,3 +96,22 @@ describe("MazeGameModel", () => {
     expect(model.particle.acceleration.x).toBe(0);
   });
 });
+
+describe("attempt timer", () => {
+  it("keeps timing after returning to start and clears the started state on retry", () => {
+    const model = new MazeGameModel();
+    const start = model.particle.position.copy();
+    model.step(FIXED_DT);
+    expect(model.timeProperty.value).toBe(0);
+    model.particle.setPositionXY(start.x + MazeGameConstants.TILE_SIZE, start.y);
+    model.step(FIXED_DT);
+    model.particle.setPositionXY(start.x, start.y);
+    const elapsed = model.timeProperty.value;
+    model.step(FIXED_DT);
+    expect(model.timeProperty.value).toBeCloseTo(elapsed + FIXED_DT, 10);
+    model.resetLevel();
+    model.step(FIXED_DT);
+    expect(model.timeProperty.value).toBe(0);
+    model.dispose();
+  });
+});
