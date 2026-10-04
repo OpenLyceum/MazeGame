@@ -11,6 +11,31 @@ const LEVEL1_WALL_COL = 7;
 const LEVEL1_WALL_ROW = 3;
 
 describe("MazeGameModel", () => {
+  it("keeps the timer running after returning to the start", () => {
+    const model = new MazeGameModel();
+    const start = model.particle.position.copy();
+    model.particle.setPositionXY(start.x - 1, start.y);
+    model.step(FIXED_DT);
+    const time = model.timeProperty.value;
+    model.particle.setPositionXY(start.x, start.y);
+    model.step(FIXED_DT);
+    expect(model.timeProperty.value).toBeCloseTo(time + FIXED_DT);
+    model.resetLevel();
+    model.step(FIXED_DT);
+    expect(model.timeProperty.value).toBe(0);
+  });
+
+  it("stops velocity at the open arena boundary", () => {
+    const model = new MazeGameModel();
+    model.setControlMode(ControlMode.VELOCITY);
+    model.particle.setPositionXY(15.6, 0);
+    model.particle.setVelocityXY(8, 0);
+    model.step(FIXED_DT);
+    expect(model.particle.position.x).toBeLessThan(16 - model.particle.radius);
+    expect(model.particle.velocity.x).toBe(0);
+    expect(model.collisionsProperty.value).toBe(1);
+  });
+
   it("increments collisions only on false-to-true wall contact", () => {
     const model = new MazeGameModel();
     model.changeLevel(LevelKey.LEVEL_1);

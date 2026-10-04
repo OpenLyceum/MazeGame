@@ -39,6 +39,22 @@ function tileCenter(level: Level, col: number, row: number): { x: number; y: num
 }
 
 describe("Level", () => {
+  it("treats the outside of every arena edge as a wall for circle collisions", () => {
+    const level = makeTestLevel();
+    const radius = MazeGameConstants.PARTICLE_RADIUS;
+    for (const [x, y] of [
+      [-16, 0],
+      [16, 0],
+      [0, -7],
+      [0, 7],
+      [-100, 0],
+    ]) {
+      expect(level.collidesWithTileTypeAt(TileType.WALL, x ?? 0, y ?? 0, radius)).toBe(true);
+      expect(level.collidesWithTileTypeAt(TileType.FINISH, x ?? 0, y ?? 0, radius)).toBe(false);
+    }
+    expect(level.collidesWithTileTypeAt(TileType.WALL, -16 + radius + 0.01, 0, radius)).toBe(false);
+  });
+
   it("collidesWithTileTypeAt detects wall overlap", () => {
     const level = makeTestLevel();
     const { x: wallX, y } = tileCenter(level, WALL_COL, 3);

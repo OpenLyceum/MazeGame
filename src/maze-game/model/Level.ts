@@ -96,6 +96,16 @@ export class Level {
    */
   public collidesWithTileTypeAt(type: TileType, x: number, y: number, radius: number): boolean {
     assert?.(radius >= 0 && Number.isFinite(x) && Number.isFinite(y) && Number.isFinite(radius));
+    // tileAt already treats the outside as a wall; circle collision must agree.
+    if (
+      type === TileType.WALL &&
+      (x - radius <= this.colToX(0) ||
+        x + radius >= this.colToX(LEVEL_WIDTH) ||
+        y - radius <= this.rowToY(0) ||
+        y + radius >= this.rowToY(LEVEL_HEIGHT))
+    ) {
+      return true;
+    }
     const cCenter = this.xToCol(x);
     const rCenter = this.yToRow(y);
     if (this.inBounds(cCenter, rCenter) && this.data[rCenter]?.[cCenter] === type) {
