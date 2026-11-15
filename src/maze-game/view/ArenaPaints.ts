@@ -31,7 +31,7 @@ const goalStarFillDarkColorProperty = new DerivedProperty(
 /**
  * Repeatable brick-wall pattern for wall tiles.
  */
-export function createBrickWallPattern(tileSizeView: number, wallColor: Color, shadowColor: Color): Pattern {
+function createBrickWallPattern(tileSizeView: number, wallColor: Color, shadowColor: Color): Pattern {
   const unit = Math.max(MazeGameLayoutConstants.ARENA_BRICK_PATTERN_MIN_UNIT_PX, Math.round(tileSizeView));
   const canvas = document.createElement("canvas");
   canvas.width = unit;

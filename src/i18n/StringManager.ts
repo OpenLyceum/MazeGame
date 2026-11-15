@@ -79,7 +79,7 @@ export type KeyboardHelpStrings = {
   readonly stopMotionDescriptionStringProperty: TReadOnlyProperty<string>;
 };
 
-export type A11yScreenSummaryStrings = {
+type A11yScreenSummaryStrings = {
   readonly playAreaStringProperty: TReadOnlyProperty<string>;
   readonly controlAreaStringProperty: TReadOnlyProperty<string>;
   readonly interactionHintStringProperty: TReadOnlyProperty<string>;
