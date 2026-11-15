@@ -5,6 +5,7 @@
  * and a collision-warning message.
  */
 
+import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { DerivedProperty, DerivedStringProperty, PatternStringProperty } from "scenerystack/axon";
 import { Range } from "scenerystack/dot";
 import { optionize } from "scenerystack/phet-core";
@@ -15,7 +16,6 @@ import { ElapsedTimeNode, GameTimer } from "scenerystack/vegas";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";
-import MazeGameLayoutConstants from "../MazeGameLayoutConstants.js";
 import type { MazeGameModel } from "../model/MazeGameModel.js";
 
 type HudNodeSelfOptions = {

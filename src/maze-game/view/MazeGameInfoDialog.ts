@@ -5,13 +5,13 @@
  * and each built-in level.
  */
 
+import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { combineOptions, optionize } from "scenerystack/phet-core";
 import { Node, RichText, Text, VBox } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import { Dialog, type DialogOptions, ScreenView } from "scenerystack/sim";
 import { Tandem } from "scenerystack/tandem";
 import { StringManager } from "../../i18n/StringManager.js";
-import MazeGameLayoutConstants from "../MazeGameLayoutConstants.js";
 
 type MazeGameInfoDialogSelfOptions = {
   tandem?: Tandem;

@@ -10,9 +10,9 @@ import { HBox, Text } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import { ToggleSwitch, type ToggleSwitchOptions } from "scenerystack/sun";
 import type { Tandem } from "scenerystack/tandem";
+import MazeGameLayoutConstants from "../common/MazeGameLayoutConstants.js";
 import { StringManager } from "../i18n/StringManager.js";
 import MazeGameColors from "../MazeGameColors.js";
-import MazeGameLayoutConstants from "../maze-game/MazeGameLayoutConstants.js";
 import type { MazeGamePreferencesModel } from "./MazeGamePreferencesModel.js";
 
 export class MazeGamePreferencesNode extends HBox {

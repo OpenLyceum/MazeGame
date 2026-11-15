@@ -5,12 +5,12 @@
  * Colors come from MazeGameColors; geometry scales with view tile size.
  */
 
+import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { DerivedProperty, type TReadOnlyProperty } from "scenerystack/axon";
 import { Vector2 } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
 import { Circle, Color, Node, Path, Pattern, RadialGradient, VoicingNode } from "scenerystack/scenery";
 import MazeGameColors, { TRANSPARENT_COLOR } from "../../MazeGameColors.js";
-import MazeGameLayoutConstants from "../MazeGameLayoutConstants.js";
 
 function toColor(paint: Color | string): Color {
   return paint instanceof Color ? paint : Color.toColor(paint);

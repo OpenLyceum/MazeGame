@@ -5,6 +5,7 @@
  * group bound to a local bridge Property synced with the model.
  */
 
+import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { Property, type TReadOnlyProperty } from "scenerystack/axon";
 import { optionize } from "scenerystack/phet-core";
 import { Text, VBox } from "scenerystack/scenery";
@@ -14,7 +15,6 @@ import { Tandem } from "scenerystack/tandem";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";
-import MazeGameLayoutConstants from "../MazeGameLayoutConstants.js";
 import { LEVEL_KEYS, LevelKey } from "../model/Levels.js";
 import type { MazeGameModel } from "../model/MazeGameModel.js";
 
