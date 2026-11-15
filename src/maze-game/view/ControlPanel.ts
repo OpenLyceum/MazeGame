@@ -10,7 +10,6 @@
  * LadyBug RemoteControlPanel.
  */
 
-import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { Multilink, Property } from "scenerystack/axon";
 import { Bounds2, clamp, Vector2 } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
@@ -20,6 +19,7 @@ import { Circle, DragListener, KeyboardListener, Node, Rectangle, Text, VBox, Vo
 import { ArrowNode, PhetFont } from "scenerystack/scenery-phet";
 import { Panel, type PanelOptions, RectangularRadioButtonGroup } from "scenerystack/sun";
 import { Tandem } from "scenerystack/tandem";
+import MazeGameLayoutConstants from "../../common/MazeGameLayoutConstants.js";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";

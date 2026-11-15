@@ -8,7 +8,6 @@
  * step(dt) advances the collision-flicker animation and the win-pulse ring.
  */
 
-import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { type BooleanProperty, DerivedProperty, Multilink, stepTimer, type TimerListener } from "scenerystack/axon";
 import { type Bounds2, Vector2 } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
@@ -30,6 +29,7 @@ import { Panel } from "scenerystack/sun";
 import { Tandem } from "scenerystack/tandem";
 import { Animation, Easing } from "scenerystack/twixt";
 import { Utterance } from "scenerystack/utterance-queue";
+import MazeGameLayoutConstants from "../../common/MazeGameLayoutConstants.js";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors, { TRANSPARENT_COLOR } from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";

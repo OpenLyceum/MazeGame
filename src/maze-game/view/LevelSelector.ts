@@ -5,13 +5,13 @@
  * group bound to a local bridge Property synced with the model.
  */
 
-import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { Property, type TReadOnlyProperty } from "scenerystack/axon";
 import { optionize } from "scenerystack/phet-core";
 import { Text, VBox } from "scenerystack/scenery";
 import { PhetFont } from "scenerystack/scenery-phet";
 import { AquaRadioButtonGroup, Panel, type PanelOptions } from "scenerystack/sun";
 import { Tandem } from "scenerystack/tandem";
+import MazeGameLayoutConstants from "../../common/MazeGameLayoutConstants.js";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";

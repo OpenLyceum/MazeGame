@@ -5,7 +5,6 @@
  * and a collision-warning message.
  */
 
-import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import { DerivedProperty, DerivedStringProperty, PatternStringProperty } from "scenerystack/axon";
 import { Range } from "scenerystack/dot";
 import { optionize } from "scenerystack/phet-core";
@@ -13,6 +12,7 @@ import { HBox, Text, VBox } from "scenerystack/scenery";
 import { NumberDisplay, PhetFont, RestartButton, StepForwardButton } from "scenerystack/scenery-phet";
 import { Panel, type PanelOptions } from "scenerystack/sun";
 import { ElapsedTimeNode, GameTimer } from "scenerystack/vegas";
+import MazeGameLayoutConstants from "../../common/MazeGameLayoutConstants.js";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";

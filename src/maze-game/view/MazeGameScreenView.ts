@@ -20,7 +20,6 @@
  * built-in tambo SoundClips.
  */
 
-import MazeGameLayoutConstants from ".../common/MazeGameLayoutConstants.js";
 import type { TReadOnlyProperty } from "scenerystack/axon";
 import { Bounds2, Range, Vector2 } from "scenerystack/dot";
 import { type EmptySelfOptions, optionize } from "scenerystack/phet-core";
@@ -39,6 +38,7 @@ import {
 } from "scenerystack/tambo";
 import type { Tandem } from "scenerystack/tandem";
 import { FLAT_RESET_ALL_BUTTON_OPTIONS } from "../../common/MazeGameButtonOptions.js";
+import MazeGameLayoutConstants from "../../common/MazeGameLayoutConstants.js";
 import { StringManager } from "../../i18n/StringManager.js";
 import MazeGameColors from "../../MazeGameColors.js";
 import MazeGameConstants from "../../MazeGameConstants.js";
