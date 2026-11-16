@@ -5,7 +5,7 @@
 import { execSync } from "node:child_process";
 import { createRequire } from "node:module";
 
-const BINDING_BY_PLATFORM = {
+const BINDING_BY_PLATFORM: Record<string, string | undefined> = {
   "linux:x64": "@rolldown/binding-linux-x64-gnu",
   "linux:arm64": "@rolldown/binding-linux-arm64-gnu",
   "darwin:x64": "@rolldown/binding-darwin-x64",

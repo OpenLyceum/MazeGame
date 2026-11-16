@@ -50,9 +50,9 @@ export class Level {
     return new Level(data);
   }
 
-  public readonly data: ReadonlyArray<ReadonlyArray<TileType>>;
+  public readonly data: ReadonlyArray<readonly TileType[]>;
 
-  public constructor(data: ReadonlyArray<ReadonlyArray<TileType>>) {
+  public constructor(data: ReadonlyArray<readonly TileType[]>) {
     this.data = data;
   }
 
