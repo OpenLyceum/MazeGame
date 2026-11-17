@@ -52,6 +52,9 @@ each locale JSON, via `StringManager.getA11yStrings()`.
 ## Compliance carve-outs
 
 - **Rolldown native binding (`postinstall`):** Vite 8 ships Rolldown native bindings as nested optional deps that npm sometimes skips. `scripts/ensure-rolldown-binding.ts` (run from the `postinstall` npm script) detects the current OS/CPU and `npm install --no-save`s the matching `@rolldown/binding-<platform>` when it is missing, so the build works on Linux/macOS/Windows without pinning a platform-specific binary in `devDependencies`.
+- `memory-leak:ControlPanel` — keepAlive against MazeGameModel retains the panel after dispose in vitest; needs ScreenView-owned soak.
+- `memory-leak:HudNode` — keepAlive against MazeGameModel retains the HUD after dispose in vitest; needs ScreenView-owned soak.
+- `memory-leak:LevelSelector` — keepAlive against MazeGameModel retains the selector after dispose in vitest; needs ScreenView-owned soak.
 
 ## Testing
 

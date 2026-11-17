@@ -45,7 +45,8 @@
     "knip": "knip",
     "test:architecture": "node --test tests/*.node-test.ts",
     "postinstall": "node scripts/ensure-rolldown-binding.ts",
-    "test:query-params": "node scripts/check-query-params.ts"
+    "test:query-params": "node scripts/check-query-params.ts",
+    "test:soak": "npx playwright test tests/browser/memory-soak.spec.ts"
   },
   "dependencies": {
     "scenerystack": "^3.0.0"
