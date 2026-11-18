@@ -624,6 +624,10 @@ export class ArenaNode extends Node {
     this.particleHelpCallout.dispose();
     this.particleHelpFadeAnimation.dispose();
     this.winPulseAnimation.dispose();
+    // These children link to sim-lifetime string and accessible-name Properties, and
+    // Node.dispose() does not dispose children.
+    this.goalText.dispose();
+    this.particleVisual.root.dispose();
     super.dispose();
   }
 
