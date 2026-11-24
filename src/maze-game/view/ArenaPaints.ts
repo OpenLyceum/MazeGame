@@ -6,7 +6,7 @@
  */
 
 import { DerivedProperty, type TReadOnlyProperty } from "scenerystack/axon";
-import { Vector2 } from "scenerystack/dot";
+import { roundSymmetric, Vector2 } from "scenerystack/dot";
 import { Shape } from "scenerystack/kite";
 import { Circle, Color, Node, Path, Pattern, RadialGradient, VoicingNode } from "scenerystack/scenery";
 import MazeGameLayoutConstants from "../../common/MazeGameLayoutConstants.js";
@@ -32,7 +32,7 @@ const goalStarFillDarkColorProperty = new DerivedProperty(
  * Repeatable brick-wall pattern for wall tiles.
  */
 function createBrickWallPattern(tileSizeView: number, wallColor: Color, shadowColor: Color): Pattern {
-  const unit = Math.max(MazeGameLayoutConstants.ARENA_BRICK_PATTERN_MIN_UNIT_PX, Math.round(tileSizeView));
+  const unit = Math.max(MazeGameLayoutConstants.ARENA_BRICK_PATTERN_MIN_UNIT_PX, roundSymmetric(tileSizeView));
   const canvas = document.createElement("canvas");
   canvas.width = unit;
   canvas.height = unit;
@@ -45,7 +45,7 @@ function createBrickWallPattern(tileSizeView: number, wallColor: Color, shadowCo
   const brick = wallColor.toCSS();
   const highlight = wallColor.brighterColor(MazeGameLayoutConstants.ARENA_BRICK_HIGHLIGHT_FACTOR).toCSS();
   const shade = wallColor.darkerColor(MazeGameLayoutConstants.ARENA_BRICK_SHADE_FACTOR).toCSS();
-  const mortarWidth = Math.max(1, Math.round(unit * MazeGameLayoutConstants.ARENA_BRICK_MORTAR_RATIO));
+  const mortarWidth = Math.max(1, roundSymmetric(unit * MazeGameLayoutConstants.ARENA_BRICK_MORTAR_RATIO));
   const rowHeight = Math.floor(
     (unit - mortarWidth * (MazeGameLayoutConstants.ARENA_BRICK_ROW_COUNT + 1)) /
       MazeGameLayoutConstants.ARENA_BRICK_ROW_COUNT,
